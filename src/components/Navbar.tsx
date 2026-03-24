@@ -18,7 +18,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 font-semibold text-gray-900">
-          <div className="w-8 h-8 bg-[#da7756] rounded-lg flex items-center justify-center">
+          <div className="w-8 h-8 bg-[#4f6ef5] rounded-lg flex items-center justify-center">
             <Bot className="w-5 h-5 text-white" />
           </div>
           <span className="text-lg">AgentCenter</span>
@@ -48,7 +48,7 @@ export default function Navbar() {
           </a>
           <a
             href="#download"
-            className="bg-[#da7756] hover:bg-[#c96644] text-white text-sm font-medium px-4 py-2 rounded-full transition-colors"
+            className="bg-[#4f6ef5] hover:bg-[#3d5ce3] text-white text-sm font-medium px-4 py-2 rounded-full transition-colors"
           >
             Download
           </a>
@@ -82,7 +82,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#download"
-                className="inline-block bg-[#da7756] text-white font-medium px-4 py-2 rounded-full text-sm"
+                className="inline-block bg-[#4f6ef5] text-white font-medium px-4 py-2 rounded-full text-sm"
                 onClick={() => setMobileOpen(false)}
               >
                 Download

@@ -25,7 +25,7 @@ const benefits = [
 
 export default function TokenControl() {
   return (
-    <section className="py-24 bg-[#fdf8f6]">
+    <section className="py-24 bg-[#f0f4ff]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: image placeholder */}
@@ -40,7 +40,7 @@ export default function TokenControl() {
               </div>
 
               {/* Placeholder content that mimics a cost dashboard */}
-              <div className="p-6 bg-gradient-to-br from-gray-50 to-white">
+              <div className="p-6 bg-gradient-to-br from-[#0f172a] to-[#1e293b]">
                 {/* Fake chart area */}
                 <div className="mb-4 flex items-end gap-2 h-24">
                   {[40, 65, 50, 80, 55, 70, 45, 90, 60, 75, 50, 85].map((h, i) => (
@@ -50,7 +50,7 @@ export default function TokenControl() {
                       style={{
                         height: `${h}%`,
                         background: i === 11
-                          ? "#da7756"
+                          ? "#4f6ef5"
                           : i % 3 === 0
                           ? "#e5e7eb"
                           : "#f3f4f6",
@@ -96,7 +96,7 @@ export default function TokenControl() {
 
           {/* Right: copy */}
           <div>
-            <p className="text-[#da7756] font-semibold text-sm uppercase tracking-wide mb-3">
+            <p className="text-[#4f6ef5] font-semibold text-sm uppercase tracking-wide mb-3">
               Cost control
             </p>
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -113,8 +113,8 @@ export default function TokenControl() {
                 const Icon = b.icon;
                 return (
                   <li key={b.title} className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#da7756]/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <Icon className="w-5 h-5 text-[#da7756]" />
+                    <div className="w-10 h-10 rounded-xl bg-[#4f6ef5]/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <Icon className="w-5 h-5 text-[#4f6ef5]" />
                     </div>
                     <div>
                       <p className="font-semibold text-gray-900 mb-0.5">{b.title}</p>

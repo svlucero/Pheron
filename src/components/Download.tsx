@@ -23,16 +23,16 @@ const platforms = [
 
 export default function Download() {
   return (
-    <section id="download" className="py-24 bg-gray-950 text-white relative overflow-hidden">
+    <section id="download" className="py-24 bg-[#0f172a] text-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#da7756]/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#4f6ef5]/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-white/10 border border-white/10 text-sm font-medium px-3 py-1.5 rounded-full mb-8">
-          <DownloadIcon className="w-3.5 h-3.5 text-[#da7756]" />
+          <DownloadIcon className="w-3.5 h-3.5 text-[#4f6ef5]" />
           Free during beta
         </div>
 
@@ -67,7 +67,7 @@ export default function Download() {
         {/* Big primary CTA */}
         <a
           href="#"
-          className="inline-flex items-center gap-2 bg-[#da7756] hover:bg-[#c96644] text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors shadow-lg shadow-[#da7756]/20"
+          className="inline-flex items-center gap-2 bg-[#4f6ef5] hover:bg-[#3d5ce3] text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors shadow-lg shadow-[#4f6ef5]/20"
         >
           <DownloadIcon className="w-5 h-5" />
           Download for free
@@ -88,8 +88,8 @@ export default function Download() {
               <span className="ml-3 text-xs text-gray-600">AgentCenter — v0.1.0-beta</span>
             </div>
             <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 flex flex-col items-center justify-center gap-4 p-8">
-              <div className="w-14 h-14 rounded-2xl bg-[#da7756]/20 flex items-center justify-center">
-                <DownloadIcon className="w-7 h-7 text-[#da7756]" />
+              <div className="w-14 h-14 rounded-2xl bg-[#4f6ef5]/20 flex items-center justify-center">
+                <DownloadIcon className="w-7 h-7 text-[#4f6ef5]" />
               </div>
               <p className="text-sm text-gray-500 font-medium">App screenshot — coming soon</p>
               <p className="text-xs text-gray-700 text-center max-w-xs">

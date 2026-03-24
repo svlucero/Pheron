@@ -14,7 +14,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-[#da7756] rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#4f6ef5] rounded-lg flex items-center justify-center">
                 <Bot className="w-5 h-5 text-white" />
               </div>
               <span className="font-semibold text-gray-900 text-lg">AgentCenter</span>

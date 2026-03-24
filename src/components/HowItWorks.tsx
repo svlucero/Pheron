@@ -31,11 +31,11 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 bg-[#fdf8f6]">
+    <section id="how-it-works" className="py-24 bg-[#f0f4ff]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-20">
-          <p className="text-[#da7756] font-semibold text-sm uppercase tracking-wide mb-3">
+          <p className="text-[#4f6ef5] font-semibold text-sm uppercase tracking-wide mb-3">
             How it works
           </p>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -77,9 +77,9 @@ export default function HowItWorks() {
                     <span className="w-2.5 h-2.5 rounded-full bg-green-300" />
                     <span className="ml-3 text-xs text-gray-400">{step.imageAlt}</span>
                   </div>
-                  <div className="aspect-video bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col items-center justify-center gap-3 p-8">
-                    <div className="w-12 h-12 rounded-xl bg-[#da7756]/10 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-[#da7756]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="aspect-video bg-gradient-to-br from-[#0f172a] to-[#1e293b] flex flex-col items-center justify-center gap-3 p-8">
+                    <div className="w-12 h-12 rounded-xl bg-[#4f6ef5]/10 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#4f6ef5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                     </div>

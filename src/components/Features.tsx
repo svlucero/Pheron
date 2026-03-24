@@ -41,7 +41,7 @@ const features = [
     title: "Specialist Agents",
     description:
       "Use built-in agents for frontend, backend, testing, and code review — or configure your own with custom prompts and tools.",
-    color: "bg-[#da7756]/10 text-[#da7756]",
+    color: "bg-[#4f6ef5]/10 text-[#4f6ef5]",
   },
   {
     icon: PuzzleIcon,
@@ -58,7 +58,7 @@ export default function Features() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-[#da7756] font-semibold text-sm uppercase tracking-wide mb-3">
+          <p className="text-[#4f6ef5] font-semibold text-sm uppercase tracking-wide mb-3">
             Everything you need
           </p>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">

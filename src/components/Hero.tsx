@@ -4,24 +4,24 @@ import { ArrowRight, Github, Play } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden bg-[#fdf8f6]">
+    <section className="relative pt-32 pb-20 overflow-hidden bg-[#f0f4ff]">
       {/* Subtle background decoration */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-gradient-to-b from-[#da7756]/10 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-gradient-to-b from-[#4f6ef5]/10 to-transparent rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: copy */}
           <div>
-            <div className="inline-flex items-center gap-2 bg-[#da7756]/10 text-[#da7756] text-sm font-medium px-3 py-1.5 rounded-full mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#da7756] inline-block" />
+            <div className="inline-flex items-center gap-2 bg-[#4f6ef5]/10 text-[#4f6ef5] text-sm font-medium px-3 py-1.5 rounded-full mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#4f6ef5] inline-block" />
               Now in beta — download free
             </div>
 
             <h1 className="text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-gray-900 text-balance mb-6">
               Your command center for{" "}
-              <span className="text-[#da7756]">AI development agents</span>
+              <span className="text-[#4f6ef5]">AI development agents</span>
             </h1>
 
             <p className="text-lg text-gray-600 leading-relaxed mb-10 max-w-xl">
@@ -33,7 +33,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-4">
               <a
                 href="#download"
-                className="inline-flex items-center gap-2 bg-[#da7756] hover:bg-[#c96644] text-white font-semibold px-6 py-3.5 rounded-full transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 bg-[#4f6ef5] hover:bg-[#3d5ce3] text-white font-semibold px-6 py-3.5 rounded-full transition-colors shadow-sm"
               >
                 Download AgentCenter
                 <ArrowRight className="w-4 h-4" />
@@ -61,9 +61,9 @@ export default function Hero() {
           <div className="relative">
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-2xl bg-white">
               {/* Placeholder for product screenshot */}
-              <div className="aspect-[4/3] bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col items-center justify-center gap-4 p-8">
-                <div className="w-16 h-16 rounded-2xl bg-[#da7756]/10 flex items-center justify-center">
-                  <svg className="w-8 h-8 text-[#da7756]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="aspect-[4/3] bg-gradient-to-br from-[#0f172a] to-[#1e293b] flex flex-col items-center justify-center gap-4 p-8">
+                <div className="w-16 h-16 rounded-2xl bg-[#4f6ef5]/10 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-[#4f6ef5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                 </div>
