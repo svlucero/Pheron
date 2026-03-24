@@ -40,7 +40,7 @@ const defaultAgents = [
     icon: Plus,
     name: "Your Custom Agent",
     description: "Define skills, tools, and a base prompt to create your own specialist.",
-    color: "bg-[#4f6ef5]/10 text-[#4f6ef5]",
+    color: "bg-[#8b5cf6]/10 text-[#8b5cf6]",
     badge: "Custom",
     isCta: true,
   },
@@ -53,7 +53,7 @@ export default function Agents() {
         {/* Header */}
         <div className="grid lg:grid-cols-2 gap-12 items-end mb-16">
           <div>
-            <p className="text-[#4f6ef5] font-semibold text-sm uppercase tracking-wide mb-3">
+            <p className="text-[#8b5cf6] font-semibold text-sm uppercase tracking-wide mb-3">
               Specialist agents
             </p>
             <h2 className="text-4xl font-bold text-gray-900">
@@ -75,7 +75,7 @@ export default function Agents() {
                 key={agent.name}
                 className={`group p-6 rounded-2xl border transition-all ${
                   agent.isCta
-                    ? "border-dashed border-[#4f6ef5]/40 hover:border-[#4f6ef5] bg-[#f0f4ff] cursor-pointer"
+                    ? "border-dashed border-[#8b5cf6]/40 hover:border-[#8b5cf6] bg-[#f5f3ff] cursor-pointer"
                     : "border-gray-100 hover:border-gray-200 hover:shadow-md bg-white"
                 }`}
               >
@@ -86,7 +86,7 @@ export default function Agents() {
                   <span
                     className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
                       agent.badge === "Custom"
-                        ? "bg-[#4f6ef5]/10 text-[#4f6ef5]"
+                        ? "bg-[#8b5cf6]/10 text-[#8b5cf6]"
                         : "bg-gray-100 text-gray-500"
                     }`}
                   >
@@ -100,7 +100,7 @@ export default function Agents() {
                   {agent.description}
                 </p>
                 {agent.isCta && (
-                  <div className="mt-4 text-sm font-medium text-[#4f6ef5] flex items-center gap-1 group-hover:gap-2 transition-all">
+                  <div className="mt-4 text-sm font-medium text-[#8b5cf6] flex items-center gap-1 group-hover:gap-2 transition-all">
                     Create custom agent →
                   </div>
                 )}

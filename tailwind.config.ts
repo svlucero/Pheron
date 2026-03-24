@@ -12,16 +12,16 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: {
-          DEFAULT: "#4f6ef5", // Blue-indigo
+          DEFAULT: "#8b5cf6", // Violet
           foreground: "#ffffff",
         },
         muted: {
-          DEFAULT: "#f0f4ff",
+          DEFAULT: "#f5f3ff",
           foreground: "#666666",
         },
         accent: {
-          DEFAULT: "#e8eeff",
-          foreground: "#1e3a8a",
+          DEFAULT: "#ede9fe",
+          foreground: "#5b21b6",
         }
       },
       fontFamily: {
