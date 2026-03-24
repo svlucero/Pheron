@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Bot, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Features", href: "#features" },
@@ -19,7 +20,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 font-semibold text-gray-900">
           <div className="w-8 h-8 bg-[#8b5cf6] rounded-lg flex items-center justify-center">
-            <Bot className="w-5 h-5 text-white" />
+            <Image src="/icon.png" alt="AgentCenter" width={20} height={20} className="invert" />
           </div>
           <span className="text-lg">AgentCenter</span>
         </a>

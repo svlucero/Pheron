@@ -1,4 +1,5 @@
-import { Bot, Github, Twitter } from "lucide-react";
+import { Github, Twitter } from "lucide-react";
+import Image from "next/image";
 
 const links = {
   Product: ["Features", "How it works", "Agents", "Pricing"],
@@ -15,7 +16,7 @@ export default function Footer() {
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 bg-[#8b5cf6] rounded-lg flex items-center justify-center">
-                <Bot className="w-5 h-5 text-white" />
+                <Image src="/icon.png" alt="AgentCenter" width={20} height={20} className="invert" />
               </div>
               <span className="font-semibold text-gray-900 text-lg">AgentCenter</span>
             </div>
