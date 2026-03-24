@@ -3,52 +3,26 @@
 import { useEffect, useState } from "react";
 import { Download as DownloadIcon, Apple, Monitor, Terminal } from "lucide-react";
 
-interface ReleaseAsset {
-  name: string;
-  browser_download_url: string;
-}
-
-interface GitHubRelease {
-  tag_name: string;
-  assets: ReleaseAsset[];
-}
-
 interface DownloadLinks {
   version: string;
   arm64: string | null;
-  x86: string | null;
+  x64: string | null;
 }
-
-const GITHUB_REPO = "svlucero/AgentCenter";
 
 function useGitHubRelease() {
   const [release, setRelease] = useState<DownloadLinks>({
     version: "...",
     arm64: null,
-    x86: null,
+    x64: null,
   });
 
   useEffect(() => {
     async function fetchRelease() {
       try {
-        const res = await fetch(
-          `https://api.github.com/repos/${GITHUB_REPO}/releases/latest`
-        );
+        const res = await fetch("/api/release");
         if (!res.ok) return;
-        const data: GitHubRelease = await res.json();
-
-        const arm64 = data.assets.find(
-          (a) => a.name.includes("aarch64") && a.name.endsWith(".dmg")
-        );
-        const x86 = data.assets.find(
-          (a) => a.name.includes("x86_64") && a.name.endsWith(".dmg")
-        );
-
-        setRelease({
-          version: data.tag_name,
-          arm64: arm64?.browser_download_url ?? null,
-          x86: x86?.browser_download_url ?? null,
-        });
+        const data: DownloadLinks = await res.json();
+        setRelease(data);
       } catch {
         // silently fail — buttons remain disabled
       }
@@ -61,11 +35,11 @@ function useGitHubRelease() {
 }
 
 export default function Download() {
-  const { version, arm64, x86 } = useGitHubRelease();
+  const { version, arm64, x64 } = useGitHubRelease();
 
   const isLoading = version === "...";
-  const primaryHref = arm64 ?? x86 ?? "#";
-  const primaryDisabled = !arm64 && !x86;
+  const primaryHref = arm64 ?? x64 ?? "#";
+  const primaryDisabled = !arm64 && !x64;
 
   return (
     <section id="download" className="py-24 bg-[#0f172a] text-white relative overflow-hidden">
@@ -121,17 +95,17 @@ export default function Download() {
 
           {/* Intel */}
           <a
-            id="dl-x86"
-            href={x86 ?? "#"}
-            aria-disabled={!x86}
+            id="dl-x64"
+            href={x64 ?? "#"}
+            aria-disabled={!x64}
             className={`group flex items-center gap-3 border px-5 py-3.5 rounded-xl transition-all
-              ${x86
+              ${x64
                 ? "bg-white/5 hover:bg-white/10 border-white/10 hover:border-white/20 text-white cursor-pointer"
                 : "bg-white/[0.02] border-white/5 text-gray-600 cursor-not-allowed"
               }`}
-            onClick={!x86 ? (e) => e.preventDefault() : undefined}
+            onClick={!x64 ? (e) => e.preventDefault() : undefined}
           >
-            <Apple className={`w-5 h-5 transition-colors ${x86 ? "text-gray-300 group-hover:text-white" : "text-gray-700"}`} />
+            <Apple className={`w-5 h-5 transition-colors ${x64 ? "text-gray-300 group-hover:text-white" : "text-gray-700"}`} />
             <div className="text-left">
               <p className="text-sm font-semibold">macOS — Intel</p>
               <p className="text-xs text-gray-500">x86_64 · .dmg</p>
