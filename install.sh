@@ -15,12 +15,10 @@
     exit 1                                                                                                                                                   
   fi
                                                                                                                                                              
-  # Get latest release download URL                                                                                                                        
+  # Get latest release download URL                       
   echo "Fetching latest release..."
-  DOWNLOAD_URL=$(curl -sL "https://api.github.com/repos/${REPO}/releases/latest" \                                                                           
-    | grep "browser_download_url.*${ASSET_PATTERN}" \
-    | head -1 \                                                                                                                                              
-    | cut -d '"' -f 4)                                                                                                                                     
+  RELEASE_JSON=$(curl -sL "https://api.github.com/repos/${REPO}/releases/latest")                                                                            
+  DOWNLOAD_URL=$(echo "$RELEASE_JSON" | grep "browser_download_url.*${ASSET_PATTERN}" | head -1 | cut -d '"' -f 4)                                                                                                                                                                                                                              
                                                                                                                                                              
   if [ -z "$DOWNLOAD_URL" ]; then                                                                                                                          
     echo "Error: Could not find DMG for ${ASSET_PATTERN}"
