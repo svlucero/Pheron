@@ -3,7 +3,7 @@ const steps = [
     number: "01",
     title: "Connect your repositories",
     description:
-      "Link your GitHub account and select the repositories you want AgentCenter to manage. It reads your issues, branches, and pull requests automatically.",
+      "Link your GitHub account and select the repositories you want Pheron to manage. It reads your issues, branches, and pull requests automatically.",
     imageAlt: "Repository connection screen",
   },
   {
@@ -24,7 +24,7 @@ const steps = [
     number: "04",
     title: "Review, merge, and track costs",
     description:
-      "The agent opens a PR with the implementation. You review and merge. AgentCenter logs every token spent so you always know the cost per issue.",
+      "The agent opens a PR with the implementation. You review and merge. Pheron logs every token spent so you always know the cost per issue.",
     imageAlt: "PR review and cost dashboard",
   },
 ];
@@ -42,7 +42,7 @@ export default function HowItWorks() {
             From issue to pull request in minutes
           </h2>
           <p className="text-lg text-gray-500">
-            AgentCenter handles the full cycle — no glue code, no manual hand-offs.
+            Pheron handles the full cycle — no glue code, no manual hand-offs.
           </p>
         </div>
 

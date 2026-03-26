@@ -12,14 +12,14 @@ const features = [
     icon: GitBranch,
     title: "Repository Management",
     description:
-      "Connect your GitHub repositories and let AgentCenter monitor branches, commits, and pull requests in real time.",
+      "Connect your GitHub repositories and let Pheron monitor branches, commits, and pull requests in real time.",
     color: "bg-blue-50 text-blue-600",
   },
   {
     icon: GitPullRequest,
     title: "GitHub Issues Automation",
     description:
-      "Assign issues to AI agents with a single click. AgentCenter reads the context, writes the code, and opens a PR automatically.",
+      "Assign issues to AI agents with a single click. Pheron reads the context, writes the code, and opens a PR automatically.",
     color: "bg-violet-50 text-violet-600",
   },
   {
@@ -65,7 +65,7 @@ export default function Features() {
             One platform, your entire agent workflow
           </h2>
           <p className="text-lg text-gray-500">
-            AgentCenter brings together repositories, issues, runners, and cost
+            Pheron brings together repositories, issues, runners, and cost
             control into a single, cohesive workspace.
           </p>
         </div>

@@ -1,45 +1,42 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Download as DownloadIcon, Apple, Monitor, Terminal } from "lucide-react";
+import { Download as DownloadIcon, Monitor, Terminal, Copy, Check } from "lucide-react";
 
-interface DownloadLinks {
-  version: string;
-  arm64: string | null;
-  x64: string | null;
-}
+const INSTALL_CMD = "curl -sSL https://raw.githubusercontent.com/svlucero/AgentCenter/main/install.sh | bash";
 
 function useGitHubRelease() {
-  const [release, setRelease] = useState<DownloadLinks>({
-    version: "...",
-    arm64: null,
-    x64: null,
-  });
+  const [version, setVersion] = useState("...");
 
   useEffect(() => {
     async function fetchRelease() {
       try {
         const res = await fetch("/api/release");
         if (!res.ok) return;
-        const data: DownloadLinks = await res.json();
-        setRelease(data);
+        const data = await res.json();
+        if (data.version) setVersion(data.version);
       } catch {
-        // silently fail — buttons remain disabled
+        // silently fail
       }
     }
 
     fetchRelease();
   }, []);
 
-  return release;
+  return version;
 }
 
 export default function Download() {
-  const { version, arm64, x64 } = useGitHubRelease();
-
+  const version = useGitHubRelease();
   const isLoading = version === "...";
-  const primaryHref = arm64 ?? x64 ?? "#";
-  const primaryDisabled = !arm64 && !x64;
+  const [copied, setCopied] = useState(false);
+
+  function handleCopy() {
+    navigator.clipboard.writeText(INSTALL_CMD).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
 
   return (
     <section id="download" className="py-24 bg-[#0f172a] text-white relative overflow-hidden">
@@ -59,7 +56,7 @@ export default function Download() {
           Start shipping with AI agents today
         </h2>
         <p className="text-gray-400 text-lg mb-4 max-w-xl mx-auto leading-relaxed">
-          Download AgentCenter for free and connect your first repository in under
+          Install Pheron in seconds and connect your first repository in under
           5 minutes. No credit card required during beta.
         </p>
 
@@ -72,89 +69,53 @@ export default function Download() {
           </span>
         </div>
 
-        {/* macOS download buttons */}
+        {/* Install command */}
+        <div className="max-w-2xl mx-auto mb-8">
+          <div className="flex items-center gap-2 bg-gray-900 border border-white/10 rounded-xl px-5 py-4 text-left">
+            <Terminal className="w-4 h-4 text-[#6d28d9] shrink-0" />
+            <code className="flex-1 text-sm font-mono text-gray-300 break-all">
+              {INSTALL_CMD}
+            </code>
+            <button
+              onClick={handleCopy}
+              className="shrink-0 ml-2 p-1.5 rounded-lg text-gray-500 hover:text-white hover:bg-white/10 transition-colors"
+              title="Copy to clipboard"
+            >
+              {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
+            </button>
+          </div>
+          <p className="mt-2 text-xs text-gray-600">macOS · Apple Silicon &amp; Intel</p>
+        </div>
+
+        {/* Coming soon platforms */}
         <div className="flex flex-wrap justify-center gap-4 mb-8">
-          {/* Apple Silicon */}
-          <a
-            id="dl-arm64"
-            href={arm64 ?? "#"}
-            aria-disabled={!arm64}
-            className={`group flex items-center gap-3 border px-5 py-3.5 rounded-xl transition-all
-              ${arm64
-                ? "bg-white/5 hover:bg-white/10 border-white/10 hover:border-white/20 text-white cursor-pointer"
-                : "bg-white/[0.02] border-white/5 text-gray-600 cursor-not-allowed"
-              }`}
-            onClick={!arm64 ? (e) => e.preventDefault() : undefined}
-          >
-            <Apple className={`w-5 h-5 transition-colors ${arm64 ? "text-gray-300 group-hover:text-white" : "text-gray-700"}`} />
-            <div className="text-left">
-              <p className="text-sm font-semibold">macOS — Apple Silicon</p>
-              <p className="text-xs text-gray-500">M1 / M2 / M3 · .dmg</p>
-            </div>
-          </a>
-
-          {/* Intel */}
-          <a
-            id="dl-x64"
-            href={x64 ?? "#"}
-            aria-disabled={!x64}
-            className={`group flex items-center gap-3 border px-5 py-3.5 rounded-xl transition-all
-              ${x64
-                ? "bg-white/5 hover:bg-white/10 border-white/10 hover:border-white/20 text-white cursor-pointer"
-                : "bg-white/[0.02] border-white/5 text-gray-600 cursor-not-allowed"
-              }`}
-            onClick={!x64 ? (e) => e.preventDefault() : undefined}
-          >
-            <Apple className={`w-5 h-5 transition-colors ${x64 ? "text-gray-300 group-hover:text-white" : "text-gray-700"}`} />
-            <div className="text-left">
-              <p className="text-sm font-semibold">macOS — Intel</p>
-              <p className="text-xs text-gray-500">x86_64 · .dmg</p>
-            </div>
-          </a>
-
           {/* Windows — coming soon */}
-          <a
-            href="#"
-            aria-disabled
-            className="group flex items-center gap-3 bg-white/[0.02] border border-white/5 text-gray-600 px-5 py-3.5 rounded-xl cursor-not-allowed"
-            onClick={(e) => e.preventDefault()}
-          >
+          <div className="flex items-center gap-3 bg-white/[0.02] border border-white/5 text-gray-600 px-5 py-3.5 rounded-xl">
             <Monitor className="w-5 h-5 text-gray-700" />
             <div className="text-left">
               <p className="text-sm font-semibold">Windows</p>
               <p className="text-xs text-gray-700">Coming soon</p>
             </div>
-          </a>
+          </div>
 
           {/* Linux — coming soon */}
-          <a
-            href="#"
-            aria-disabled
-            className="group flex items-center gap-3 bg-white/[0.02] border border-white/5 text-gray-600 px-5 py-3.5 rounded-xl cursor-not-allowed"
-            onClick={(e) => e.preventDefault()}
-          >
+          <div className="flex items-center gap-3 bg-white/[0.02] border border-white/5 text-gray-600 px-5 py-3.5 rounded-xl">
             <Terminal className="w-5 h-5 text-gray-700" />
             <div className="text-left">
               <p className="text-sm font-semibold">Linux</p>
               <p className="text-xs text-gray-700">Coming soon</p>
             </div>
-          </a>
+          </div>
         </div>
 
         {/* Big primary CTA */}
-        <a
-          href={primaryHref}
-          aria-disabled={primaryDisabled}
-          className={`inline-flex items-center gap-2 font-semibold px-8 py-4 rounded-full text-lg transition-colors shadow-lg shadow-[#6d28d9]/20
-            ${primaryDisabled
-              ? "bg-[#6d28d9]/40 text-white/40 cursor-not-allowed"
-              : "bg-[#6d28d9] hover:bg-[#5b21b6] text-white"
-            }`}
-          onClick={primaryDisabled ? (e) => e.preventDefault() : undefined}
+        <button
+          onClick={handleCopy}
+          className="inline-flex items-center gap-2 font-semibold px-8 py-4 rounded-full text-lg transition-colors shadow-lg shadow-[#6d28d9]/20 bg-[#6d28d9] hover:bg-[#5b21b6] text-white"
         >
-          <DownloadIcon className="w-5 h-5" />
-          Download for free
-        </a>
+          {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
+          {copied ? "Copied!" : "Copy install command"}
+        </button>
 
         <p className="mt-4 text-sm text-gray-600">
           macOS · Windows (soon) · Linux (soon)

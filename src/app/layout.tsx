@@ -8,9 +8,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AgentCenter — Manage AI Agents for Your Dev Workflow",
+  title: "Pheron — Manage AI Agents for Your Dev Workflow",
   description:
-    "AgentCenter lets you manage repositories, GitHub issues, and AI agents to automate your software development workflow. Control costs, use multiple runners, and build custom specialist agents.",
+    "Pheron lets you manage repositories, GitHub issues, and AI agents to automate your software development workflow. Control costs, use multiple runners, and build custom specialist agents.",
 };
 
 export default function RootLayout({

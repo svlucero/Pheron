@@ -61,7 +61,7 @@ export default function Agents() {
             </h2>
           </div>
           <p className="text-gray-500 text-lg leading-relaxed">
-            AgentCenter ships with a roster of expert agents ready to use out of the box.
+            Pheron ships with a roster of expert agents ready to use out of the box.
             Not finding what you need? Build your own in minutes.
           </p>
         </div>
@@ -114,7 +114,7 @@ export default function Agents() {
           <div>
             <h3 className="text-xl font-bold mb-2">Compatible with your favorite runners</h3>
             <p className="text-gray-400 text-sm max-w-lg">
-              AgentCenter is runner-agnostic. Pair any agent with Claude Code, Gemini, or plug in your own custom runner via our open API.
+              Pheron is runner-agnostic. Pair any agent with Claude Code, Gemini, or plug in your own custom runner via our open API.
             </p>
           </div>
           <div className="flex flex-wrap gap-3 shrink-0">

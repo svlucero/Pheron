@@ -25,7 +25,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-gray-600 leading-relaxed mb-10 max-w-xl">
-              AgentCenter lets you manage repositories, automate GitHub issues, and
+              Pheron lets you manage repositories, automate GitHub issues, and
               orchestrate multiple AI runners — all from one place. Ship faster with
               specialist agents and full cost control.
             </p>
@@ -35,7 +35,7 @@ export default function Hero() {
                 href="#download"
                 className="inline-flex items-center gap-2 bg-[#6d28d9] hover:bg-[#5b21b6] text-white font-semibold px-6 py-3.5 rounded-full transition-colors shadow-sm"
               >
-                Download AgentCenter
+                Download Pheron
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
@@ -78,7 +78,7 @@ export default function Hero() {
                 <span className="w-2.5 h-2.5 rounded-full bg-red-300" />
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-300" />
                 <span className="w-2.5 h-2.5 rounded-full bg-green-300" />
-                <span className="ml-4 text-xs text-gray-400">AgentCenter — Dashboard</span>
+                <span className="ml-4 text-xs text-gray-400">Pheron — Dashboard</span>
               </div>
             </div>
 

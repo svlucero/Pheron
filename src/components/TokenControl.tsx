@@ -36,7 +36,7 @@ export default function TokenControl() {
                 <span className="w-2.5 h-2.5 rounded-full bg-red-300" />
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-300" />
                 <span className="w-2.5 h-2.5 rounded-full bg-green-300" />
-                <span className="ml-3 text-xs text-gray-400">AgentCenter — Cost Dashboard</span>
+                <span className="ml-3 text-xs text-gray-400">Pheron — Cost Dashboard</span>
               </div>
 
               {/* Placeholder content that mimics a cost dashboard */}
@@ -103,7 +103,7 @@ export default function TokenControl() {
               Know exactly what your agents are spending
             </h2>
             <p className="text-gray-500 text-lg leading-relaxed mb-10">
-              AgentCenter gives you full visibility into token usage and costs across
+              Pheron gives you full visibility into token usage and costs across
               every project, agent, and run — so there are no surprises at the end of
               the month.
             </p>

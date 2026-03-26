@@ -16,9 +16,9 @@ export default function Footer() {
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 bg-[#6d28d9] rounded-lg flex items-center justify-center">
-                <Image src="/icon.png" alt="AgentCenter" width={20} height={20} className="invert" />
+                <Image src="/icon.png" alt="Pheron" width={20} height={20} className="invert" />
               </div>
-              <span className="font-semibold text-gray-900 text-lg">AgentCenter</span>
+              <span className="font-semibold text-gray-900 text-lg">Pheron</span>
             </div>
             <p className="text-sm text-gray-500 leading-relaxed max-w-xs">
               The command center for managing AI agents across your software development workflow.
@@ -58,7 +58,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-gray-100">
           <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} AgentCenter. All rights reserved.
+            © {new Date().getFullYear()} Pheron. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
