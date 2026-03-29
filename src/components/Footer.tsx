@@ -16,7 +16,7 @@ const links = {
   ],
   Company: [
     { label: "About", href: "#" },
-    { label: "Blog", href: "https://blog.littlesoft-ai.com/" },
+    { label: "Blog", href: "https://blog.littlesoft-ai.com/en" },
     { label: "Changelog", href: "#" },
     { label: "Contact", href: "mailto:contact@littlesoft-ai.com" },
   ],
