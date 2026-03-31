@@ -114,11 +114,11 @@ export default function Agents() {
           <div>
             <h3 className="text-xl font-bold mb-2">Compatible with your favorite runners</h3>
             <p className="text-gray-400 text-sm max-w-lg">
-              Pheron is runner-agnostic. Pair any agent with Claude Code, Gemini, or plug in your own custom runner via our open API.
+              Pheron is runner-agnostic. Pair any agent with Claude Code, Gemini, Codex, or plug in your own custom runner via our open API.
             </p>
           </div>
           <div className="flex flex-wrap gap-3 shrink-0">
-            {["Claude Code", "Gemini", "Custom runner"].map((runner) => (
+            {["Claude Code", "Gemini", "Codex", "Custom runner"].map((runner) => (
               <span
                 key={runner}
                 className="bg-white/10 border border-white/10 text-white text-sm font-medium px-4 py-2 rounded-full"

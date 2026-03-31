@@ -37,7 +37,7 @@ const features: Feature[] = [
     icon: Zap,
     title: "Multiple AI Runners",
     description:
-      "Choose the best runner for each task — Claude Code, Gemini, or your own custom runner. Switch without changing your workflow.",
+      "Choose the best runner for each task — Claude Code, Gemini, Codex, or your own custom runner. Switch without changing your workflow.",
     color: "bg-amber-50 text-amber-600",
   },
   {

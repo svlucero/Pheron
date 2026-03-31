@@ -58,13 +58,13 @@ export default function Hero() {
                 GitHub integrated
               </div>
               <div className="w-px h-4 bg-gray-200" />
-              <span>Claude Code · Gemini · Custom runners</span>
+              <span>Claude Code · Gemini · Codex · Custom runners</span>
             </div>
           </div>
 
           {/* Right: product screenshot */}
           <div className="relative">
-            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-2xl bg-white">
+            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-2xl bg-black">
               {/* Window chrome */}
               <div className="h-8 bg-gray-50 border-b border-gray-100 flex items-center px-3 gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-300" />

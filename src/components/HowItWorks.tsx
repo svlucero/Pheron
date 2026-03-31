@@ -25,7 +25,7 @@ const steps = [
     number: "03",
     title: "Choose your runner",
     description:
-      "Select which AI runner handles the task: Claude Code, Gemini, or your own custom runner. Different issues, different runners — full flexibility.",
+      "Select which AI runner handles the task: Claude Code, Gemini, Codex, or your own custom runner. Different issues, different runners — full flexibility.",
     imageAlt: "Runner selection screen",
     imageSrc: "/runner.jpg",
   },
@@ -82,7 +82,7 @@ export default function HowItWorks() {
 
               {/* Step screenshot */}
               <div className={index % 2 === 1 ? "lg:[direction:ltr]" : ""}>
-                <div className="rounded-2xl border border-gray-200 overflow-hidden shadow-lg bg-white">
+                <div className="rounded-2xl border border-gray-200 overflow-hidden shadow-lg bg-black">
                   <div className="h-8 bg-gray-50 border-b border-gray-100 flex items-center px-3 gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-red-300" />
                     <span className="w-2.5 h-2.5 rounded-full bg-yellow-300" />
