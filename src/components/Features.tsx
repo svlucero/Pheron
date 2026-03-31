@@ -1,3 +1,4 @@
+import React from "react";
 import {
   GitBranch,
   GitPullRequest,
@@ -5,9 +6,19 @@ import {
   Coins,
   Bot,
   PuzzleIcon,
+  MessageCircle,
+  BrainCircuit,
 } from "lucide-react";
 
-const features = [
+type Feature = {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  color: string;
+  comingSoon?: boolean;
+};
+
+const features: Feature[] = [
   {
     icon: GitBranch,
     title: "Repository Management",
@@ -50,6 +61,22 @@ const features = [
       "Design your own specialist agents from scratch. Define their skills, tools, and context, then reuse them across all your projects.",
     color: "bg-pink-50 text-pink-600",
   },
+  {
+    icon: MessageCircle,
+    title: "Telegram Integration",
+    description:
+      "Chat with Claude, Gemini, or Codex from your phone. Assign issues, review PRs, and check costs directly from Telegram.",
+    color: "bg-sky-50 text-sky-600",
+    comingSoon: true,
+  },
+  {
+    icon: BrainCircuit,
+    title: "Context Optimization",
+    description:
+      "Automatic context window management per agent — trim, summarize, and prioritize history to cut token usage on long-running tasks.",
+    color: "bg-orange-50 text-orange-600",
+    comingSoon: true,
+  },
 ];
 
 export default function Features() {
@@ -77,8 +104,13 @@ export default function Features() {
             return (
               <div
                 key={feat.title}
-                className="group p-6 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all bg-white"
+                className="group p-6 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all bg-white relative"
               >
+                {feat.comingSoon && (
+                  <span className="absolute top-4 right-4 text-[10px] font-semibold uppercase tracking-wide bg-gray-100 text-gray-400 px-2 py-0.5 rounded-full">
+                    Coming soon
+                  </span>
+                )}
                 <div
                   className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${feat.color}`}
                 >

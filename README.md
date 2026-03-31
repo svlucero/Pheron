@@ -80,6 +80,11 @@ This project started as **AgentFlow** and now evolves under the **Pheron** name.
 
 During the transition, historical references may still exist in folder/repository names, but the current product name and direction are **Pheron**.
 
+## Coming next
+
+- **Telegram integration**: chat with Claude, Gemini, or Codex directly from your phone. Assign issues, review PRs, and check token usage from Telegram without opening the desktop app.
+- **Context optimization**: automatic context window management per agent — trim, summarize, and prioritize relevant history to reduce token usage and improve response quality across long-running tasks.
+
 ## Why it matters
 
 Pheron helps teams scale coding-agent usage without losing control:
