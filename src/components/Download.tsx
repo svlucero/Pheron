@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Download as DownloadIcon, Monitor, Terminal, Copy, Check } from "lucide-react";
+import Image from "next/image";
+import Lightbox from "./Lightbox";
 
 const INSTALL_CMD = "curl -sSL https://raw.githubusercontent.com/svlucero/pheron/main/install.sh | bash";
 
@@ -30,6 +32,7 @@ export default function Download() {
   const version = useGitHubRelease();
   const isLoading = version === "...";
   const [copied, setCopied] = useState(false);
+  const [lightbox, setLightbox] = useState(false);
 
   function handleCopy() {
     navigator.clipboard.writeText(INSTALL_CMD).then(() => {
@@ -123,7 +126,7 @@ export default function Download() {
 
         {/* Divider */}
         <div className="mt-16 pt-16 border-t border-white/5">
-          {/* App screenshot placeholder */}
+          {/* App screenshot */}
           <div className="rounded-2xl border border-white/10 overflow-hidden max-w-2xl mx-auto">
             <div className="h-8 bg-white/5 border-b border-white/5 flex items-center px-3 gap-1.5">
               <span className="w-2.5 h-2.5 rounded-full bg-red-400/50" />
@@ -136,18 +139,23 @@ export default function Download() {
                 </span>
               </span>
             </div>
-            <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 flex flex-col items-center justify-center gap-4 p-8">
-              <div className="w-14 h-14 rounded-2xl bg-[#6d28d9]/20 flex items-center justify-center">
-                <DownloadIcon className="w-7 h-7 text-[#6d28d9]" />
-              </div>
-              <p className="text-sm text-gray-500 font-medium">App screenshot — coming soon</p>
-              <p className="text-xs text-gray-700 text-center max-w-xs">
-                Full desktop UI showing agent management, issue queue, and real-time cost tracking
-              </p>
+            <div
+              className="relative aspect-video cursor-zoom-in"
+              onClick={() => setLightbox(true)}
+            >
+              <Image
+                src="/panel1.jpg"
+                alt="Pheron app dashboard"
+                fill
+                className="object-contain"
+              />
             </div>
           </div>
         </div>
       </div>
+      {lightbox && (
+        <Lightbox src="/panel1.jpg" alt="Pheron app dashboard" onClose={() => setLightbox(false)} />
+      )}
     </section>
   );
 }

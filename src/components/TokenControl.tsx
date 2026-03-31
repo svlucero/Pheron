@@ -1,4 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import { ShieldCheck, TrendingDown, Bell, BarChart3 } from "lucide-react";
+import Image from "next/image";
+import Lightbox from "./Lightbox";
 
 const benefits = [
   {
@@ -24,61 +29,32 @@ const benefits = [
 ];
 
 export default function TokenControl() {
+  const [lightbox, setLightbox] = useState(false);
+
   return (
     <section className="py-24 bg-[#f3f0ff]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left: image placeholder */}
+          {/* Left: cost dashboard screenshot */}
           <div className="relative">
             <div className="rounded-2xl border border-gray-200 overflow-hidden shadow-xl bg-white">
-              {/* Fake window chrome */}
+              {/* Window chrome */}
               <div className="h-8 bg-gray-50 border-b border-gray-100 flex items-center px-3 gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-300" />
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-300" />
                 <span className="w-2.5 h-2.5 rounded-full bg-green-300" />
                 <span className="ml-3 text-xs text-gray-400">Pheron — Cost Dashboard</span>
               </div>
-
-              {/* Placeholder content that mimics a cost dashboard */}
-              <div className="p-6 bg-gradient-to-br from-[#0f172a] to-[#1e293b]">
-                {/* Fake chart area */}
-                <div className="mb-4 flex items-end gap-2 h-24">
-                  {[40, 65, 50, 80, 55, 70, 45, 90, 60, 75, 50, 85].map((h, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 rounded-t"
-                      style={{
-                        height: `${h}%`,
-                        background: i === 11
-                          ? "#6d28d9"
-                          : i % 3 === 0
-                          ? "#e5e7eb"
-                          : "#f3f4f6",
-                      }}
-                    />
-                  ))}
-                </div>
-
-                {/* Fake stats row */}
-                <div className="grid grid-cols-3 gap-4 mt-6">
-                  {[
-                    { label: "This month", value: "$4.32", trend: "↓ 18%" },
-                    { label: "Tokens used", value: "1.2M", trend: "↑ 5%" },
-                    { label: "Issues solved", value: "47", trend: "↑ 31%" },
-                  ].map((stat) => (
-                    <div key={stat.label} className="bg-white rounded-xl border border-gray-100 p-3">
-                      <p className="text-xs text-gray-400 mb-1">{stat.label}</p>
-                      <p className="text-base font-bold text-gray-900">{stat.value}</p>
-                      <p className={`text-xs font-medium ${stat.trend.startsWith("↓") ? "text-green-500" : "text-blue-500"}`}>
-                        {stat.trend}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                <p className="text-xs text-gray-300 text-center mt-6 font-medium">
-                  Screenshot placeholder — cost dashboard coming soon
-                </p>
+              <div
+                className="relative aspect-video cursor-zoom-in"
+                onClick={() => setLightbox(true)}
+              >
+                <Image
+                  src="/cost.jpg"
+                  alt="Pheron cost dashboard"
+                  fill
+                  className="object-contain"
+                />
               </div>
             </div>
 
@@ -127,6 +103,9 @@ export default function TokenControl() {
           </div>
         </div>
       </div>
+      {lightbox && (
+        <Lightbox src="/cost.jpg" alt="Pheron cost dashboard" onClose={() => setLightbox(false)} />
+      )}
     </section>
   );
 }

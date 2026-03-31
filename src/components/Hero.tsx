@@ -1,8 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { ArrowRight, Github, Play } from "lucide-react";
+import Image from "next/image";
+import Lightbox from "./Lightbox";
 
 export default function Hero() {
+  const [lightbox, setLightbox] = useState(false);
+
   return (
     <section className="relative pt-32 pb-20 overflow-hidden bg-[#f3f0ff]">
       {/* Subtle background decoration */}
@@ -57,28 +62,27 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: image placeholder */}
+          {/* Right: product screenshot */}
           <div className="relative">
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-2xl bg-white">
-              {/* Placeholder for product screenshot */}
-              <div className="aspect-[4/3] bg-gradient-to-br from-[#0f172a] to-[#1e293b] flex flex-col items-center justify-center gap-4 p-8">
-                <div className="w-16 h-16 rounded-2xl bg-[#6d28d9]/10 flex items-center justify-center">
-                  <svg className="w-8 h-8 text-[#6d28d9]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <p className="text-sm text-gray-400 font-medium">Product screenshot coming soon</p>
-                <p className="text-xs text-gray-300 text-center max-w-xs">
-                  App dashboard showing repositories, active agents and live cost metrics
-                </p>
-              </div>
-
-              {/* Fake UI bar on top */}
-              <div className="absolute top-0 left-0 right-0 h-8 bg-white border-b border-gray-100 flex items-center px-3 gap-1.5">
+              {/* Window chrome */}
+              <div className="h-8 bg-gray-50 border-b border-gray-100 flex items-center px-3 gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-300" />
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-300" />
                 <span className="w-2.5 h-2.5 rounded-full bg-green-300" />
                 <span className="ml-4 text-xs text-gray-400">Pheron — Dashboard</span>
+              </div>
+              <div
+                className="relative aspect-[4/3] cursor-zoom-in"
+                onClick={() => setLightbox(true)}
+              >
+                <Image
+                  src="/panel1.jpg"
+                  alt="Pheron dashboard"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
             </div>
 
@@ -102,6 +106,9 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      {lightbox && (
+        <Lightbox src="/panel1.jpg" alt="Pheron dashboard" onClose={() => setLightbox(false)} />
+      )}
     </section>
   );
 }
