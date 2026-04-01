@@ -35,10 +35,20 @@ export async function GET() {
       (a.name.includes("x64") || a.name.includes("x86_64")) &&
       a.name.endsWith(".dmg")
   );
+  const linuxX64 = data.assets?.find(
+    (a: { name: string; browser_download_url: string }) =>
+      a.name.includes("amd64") && a.name.endsWith(".AppImage")
+  );
+  const linuxArm64 = data.assets?.find(
+    (a: { name: string; browser_download_url: string }) =>
+      a.name.includes("aarch64") && a.name.endsWith(".AppImage")
+  );
 
   return NextResponse.json({
     version: data.tag_name,
     arm64: arm64?.browser_download_url ?? null,
     x64: x64?.browser_download_url ?? null,
+    linuxX64: linuxX64?.browser_download_url ?? null,
+    linuxArm64: linuxArm64?.browser_download_url ?? null,
   });
 }

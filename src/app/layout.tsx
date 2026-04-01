@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Pheron — Manage AI Agents for Your Dev Workflow",
   description:
     "Pheron lets you manage repositories, GitHub issues, and AI agents to automate your software development workflow. Control costs, use multiple runners, and build custom specialist agents.",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({

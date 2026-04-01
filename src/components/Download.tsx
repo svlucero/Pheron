@@ -87,7 +87,7 @@ export default function Download() {
               {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
             </button>
           </div>
-          <p className="mt-2 text-xs text-gray-600">macOS · Apple Silicon &amp; Intel</p>
+          <p className="mt-2 text-xs text-gray-600">macOS · Apple Silicon &amp; Intel &nbsp;·&nbsp; Linux · x86_64 &amp; ARM64</p>
         </div>
 
         {/* Coming soon platforms */}
@@ -101,12 +101,12 @@ export default function Download() {
             </div>
           </div>
 
-          {/* Linux — coming soon */}
-          <div className="flex items-center gap-3 bg-white/[0.02] border border-white/5 text-gray-600 px-5 py-3.5 rounded-xl">
-            <Terminal className="w-5 h-5 text-gray-700" />
+          {/* Linux — available */}
+          <div className="flex items-center gap-3 bg-white/[0.03] border border-white/10 text-gray-300 px-5 py-3.5 rounded-xl">
+            <Terminal className="w-5 h-5 text-[#6d28d9]" />
             <div className="text-left">
               <p className="text-sm font-semibold">Linux</p>
-              <p className="text-xs text-gray-700">Coming soon</p>
+              <p className="text-xs text-gray-400">x86_64 &amp; ARM64 · AppImage</p>
             </div>
           </div>
         </div>
@@ -121,7 +121,7 @@ export default function Download() {
         </button>
 
         <p className="mt-4 text-sm text-gray-600">
-          macOS · Windows (soon) · Linux (soon)
+          macOS · Linux &nbsp;·&nbsp; Windows (soon)
         </p>
 
         {/* Divider */}
