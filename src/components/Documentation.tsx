@@ -128,36 +128,32 @@ const sections: Section[] = [
     content: (
       <div className="space-y-4">
         <p>
-          La sección <strong>Repositories</strong> es el punto de partida. Acá
-          registrás los repos git sobre los que van a trabajar tus agentes.
+          The <strong>Repositories</strong> section is your starting point.
+          Register the git repositories your agents will work on.
         </p>
         <div className="space-y-3">
-          <p className="font-semibold text-gray-800">
-            Clonar desde GitHub
-          </p>
+          <p className="font-semibold text-gray-800">Clone from GitHub</p>
           <div className="space-y-2">
-            <Step n={1} text="Click en Add Repository." />
-            <Step n={2} text="Seleccioná tu organización/usuario y elegí el repo de la lista (requiere GitHub Token en Settings)." />
-            <Step n={3} text="Elegí la carpeta destino donde clonar." />
-            <Step n={4} text={<>Click en <strong>Create</strong> — Pheron clona el repo y lo registra automáticamente.</>} />
+            <Step n={1} text="Click Add Repository." />
+            <Step n={2} text="Select your organization or user and pick a repo from the list (requires a GitHub Token in Settings)." />
+            <Step n={3} text="Choose the destination folder to clone into." />
+            <Step n={4} text={<>Click <strong>Create</strong> — Pheron clones the repo and registers it automatically.</>} />
           </div>
         </div>
         <div className="space-y-3">
-          <p className="font-semibold text-gray-800">
-            Agregar un repo local ya existente
-          </p>
+          <p className="font-semibold text-gray-800">Add an existing local repo</p>
           <div className="space-y-2">
-            <Step n={1} text="Click en Add Repository." />
-            <Step n={2} text={<>En <strong>Source</strong>, seleccioná <strong>Local path</strong>.</>} />
-            <Step n={3} text="Click en Browse para navegar y seleccionar la carpeta." />
-            <Step n={4} text={<>Pheron detecta automáticamente la URL del remote de GitHub desde <Code>git remote.origin.url</Code>.</>} />
-            <Step n={5} text="Click en Create." />
+            <Step n={1} text="Click Add Repository." />
+            <Step n={2} text={<>Under <strong>Source</strong>, select <strong>Local path</strong>.</>} />
+            <Step n={3} text="Click Browse to navigate and select the folder." />
+            <Step n={4} text={<>Pheron automatically detects the GitHub remote URL from <Code>git remote.origin.url</Code>.</>} />
+            <Step n={5} text="Click Create." />
           </div>
         </div>
         <p>
-          <strong>Worktrees:</strong> Cada repo puede tener múltiples worktrees
-          (ramas de trabajo aisladas). Pheron los detecta automáticamente para
-          que diferentes agentes trabajen en paralelo sin pisarse.
+          <strong>Worktrees:</strong> Each repository can have multiple worktrees
+          (isolated working branches). Pheron detects them automatically so
+          different agents can work in parallel without conflicts.
         </p>
       </div>
     ),
@@ -165,39 +161,39 @@ const sections: Section[] = [
   {
     id: "tasks",
     icon: BookOpen,
-    title: "Tareas (Issues)",
+    title: "Tasks (Issues)",
     color: "bg-violet-50 text-violet-600",
     content: (
       <div className="space-y-4">
         <p>
-          Dentro de cada repositorio, la vista principal muestra las{" "}
-          <strong>tareas pendientes</strong> como una lista de issues de GitHub.
+          Inside each repository, the main view shows <strong>pending tasks</strong> as
+          a list of GitHub issues.
         </p>
         <div className="space-y-2">
           <p>
-            <strong>Ver tareas:</strong> Seleccioná un repositorio — los issues
-            abiertos se listan con paginación de 5 por página.
+            <strong>View tasks:</strong> Select a repository — open issues are
+            listed with pagination of 5 per page.
           </p>
           <p>
-            <strong>Crear una tarea:</strong> Click en <strong>New Task</strong>{" "}
-            → escribí título y descripción → se crea como un issue en GitHub.
+            <strong>Create a task:</strong> Click <strong>New Task</strong> →
+            enter a title and description → it gets created as a GitHub issue.
           </p>
           <p>
-            <strong>Iniciar un agente desde una tarea:</strong> Click en el
-            ícono ▶ de cualquier tarea → elegí la especialización y el runner →
-            el agente arranca con esa tarea como prompt inicial.
+            <strong>Start an agent from a task:</strong> Click the ▶ icon on any
+            task → choose a specialization and runner → the agent starts with
+            that task as its initial prompt.
           </p>
           <p>
-            <strong>Cerrar una tarea:</strong> Click en el ícono ✓ de la tarea
-            para marcarla como resuelta (cierra el issue en GitHub).
+            <strong>Close a task:</strong> Click the ✓ icon on a task to mark it
+            as resolved (closes the issue on GitHub).
           </p>
         </div>
         <Table
-          headers={["Filtro", "Muestra"]}
+          headers={["Filter", "Shows"]}
           rows={[
-            ["running", "Agentes activos en este momento"],
-            ["idle", "Agentes sin tarea"],
-            ["error", "Agentes que fallaron"],
+            ["running", "Agents currently active"],
+            ["idle", "Agents with no task assigned"],
+            ["error", "Agents that failed"],
           ]}
         />
       </div>
@@ -206,43 +202,42 @@ const sections: Section[] = [
   {
     id: "agents",
     icon: Bot,
-    title: "Agentes",
+    title: "Agents",
     color: "bg-[#6d28d9]/10 text-[#6d28d9]",
     content: (
       <div className="space-y-4">
         <p>
-          Un agente es una instancia de un runner de IA asignada a un
-          repositorio y configurada con una especialización. Puede ejecutar
-          tareas de desarrollo de forma autónoma.
+          An agent is an AI runner instance assigned to a repository and
+          configured with a specialization. It can execute development tasks
+          autonomously.
         </p>
         <div className="space-y-3">
-          <p className="font-semibold text-gray-800">Crear un agente</p>
+          <p className="font-semibold text-gray-800">Create an agent</p>
           <div className="space-y-2">
-            <Step n={1} text="Dentro de un repositorio, click en New Agent." />
-            <Step n={2} text="Asignale una descripción de tarea." />
-            <Step n={3} text="Elegí la especialización (define el comportamiento)." />
-            <Step n={4} text="Elegí el runner (Claude Code, Gemini CLI o Codex)." />
-            <Step n={5} text="Click en Create." />
+            <Step n={1} text="Inside a repository, click New Agent." />
+            <Step n={2} text="Give it a task description." />
+            <Step n={3} text="Choose a specialization (defines the agent's behavior)." />
+            <Step n={4} text="Choose a runner (Claude Code, Gemini CLI, or Codex)." />
+            <Step n={5} text="Click Create." />
           </div>
         </div>
         <p>
-          <strong>Durante la ejecución:</strong> Los logs se muestran en tiempo
-          real. Podés ver las herramientas que usa, sus respuestas y resultados.
-          Click en <strong>Stop</strong> para detener el agente, o{" "}
-          <strong>Send</strong> para enviarle un mensaje adicional mientras
-          corre.
+          <strong>During execution:</strong> Logs are shown in real time. You can
+          see the tools it uses, its responses, and results. Click{" "}
+          <strong>Stop</strong> to halt the agent, or <strong>Send</strong> to
+          send it an additional message while it's running.
         </p>
         <p>
-          <strong>Historial:</strong> Cada inicio del agente genera una sesión.
-          Podés revisar el historial completo desde la vista de detalle.
+          <strong>Session history:</strong> Each agent start creates a new
+          session. You can review the full history from the agent detail view.
         </p>
         <Table
-          headers={["Estado", "Descripción"]}
+          headers={["Status", "Description"]}
           rows={[
-            ["idle", "Listo para recibir una tarea"],
-            ["running", "Ejecutando activamente"],
-            ["paused", "Pausado"],
-            ["error", "Falló en la última ejecución"],
+            ["idle", "Ready to receive a task"],
+            ["running", "Actively executing"],
+            ["paused", "Paused"],
+            ["error", "Failed on last run"],
           ]}
         />
       </div>
@@ -251,26 +246,26 @@ const sections: Section[] = [
   {
     id: "runners",
     icon: Zap,
-    title: "Runners de IA",
+    title: "AI Runners",
     color: "bg-amber-50 text-amber-600",
     content: (
       <div className="space-y-4">
         <p>
-          Pheron soporta múltiples runners de IA intercambiables. La app
-          detecta automáticamente qué CLIs están instalados.
+          Pheron supports multiple interchangeable AI runners. The app
+          automatically detects which CLIs are installed on your machine.
         </p>
         <Table
-          headers={["Runner", "CLI requerido", "Descripción"]}
+          headers={["Runner", "Required CLI", "Description"]}
           rows={[
-            ["Claude Code", "claude", "Runner por defecto, basado en Claude de Anthropic"],
-            ["Gemini CLI", "gemini", "Runner basado en Gemini de Google"],
-            ["OpenAI Codex", "codex", "Runner basado en modelos de OpenAI"],
+            ["Claude Code", "claude", "Default runner, powered by Anthropic's Claude"],
+            ["Gemini CLI", "gemini", "Runner powered by Google's Gemini"],
+            ["OpenAI Codex", "codex", "Runner powered by OpenAI models"],
           ]}
         />
         <p>
-          Al hacer click en ▶ en una tarea o al crear un agente manualmente,
-          aparece un selector de runner. Si la especialización está configurada
-          para un runner específico, solo se habilitará ese.
+          When you click ▶ on a task or create an agent manually, a runner
+          selector appears. If a specialization is locked to a specific runner,
+          only that runner will be enabled.
         </p>
       </div>
     ),
@@ -278,36 +273,35 @@ const sections: Section[] = [
   {
     id: "specializations",
     icon: PuzzleIcon,
-    title: "Especializaciones",
+    title: "Specializations",
     color: "bg-pink-50 text-pink-600",
     content: (
       <div className="space-y-4">
         <p>
-          Las especializaciones definen el <strong>comportamiento</strong> de un
-          agente mediante un system prompt. Determinan qué tipo de tareas puede
-          hacer y con qué estilo.
+          Specializations define an agent's <strong>behavior</strong> through a
+          system prompt. They determine what kind of tasks the agent can handle
+          and in what style.
         </p>
         <Table
-          headers={["Tipo", "Descripción"]}
+          headers={["Type", "Description"]}
           rows={[
-            ["system", "Provistas por Pheron, no editables"],
-            ["default", "Por defecto, personalizables"],
-            ["user", "Creadas por vos"],
+            ["system", "Provided by Pheron, not editable"],
+            ["default", "Default ones, customizable"],
+            ["user", "Created by you"],
           ]}
         />
         <div className="space-y-3">
-          <p className="font-semibold text-gray-800">Crear una especialización</p>
+          <p className="font-semibold text-gray-800">Create a specialization</p>
           <div className="space-y-2">
-            <Step n={1} text="Click en New Specialization." />
-            <Step n={2} text={<>Completá <strong>Name</strong>, <strong>Slug</strong>, <strong>Description</strong> y <strong>Runner type</strong>.</>} />
-            <Step n={3} text={<>Escribí el <strong>Base prompt</strong> — soporta las variables <Code>{"{{.RepoName}}"}</Code> y <Code>{"{{.RepoPath}}"}</Code>.</>} />
-            <Step n={4} text="Click en Save." />
+            <Step n={1} text="Click New Specialization." />
+            <Step n={2} text={<>Fill in <strong>Name</strong>, <strong>Slug</strong>, <strong>Description</strong>, and <strong>Runner type</strong>.</>} />
+            <Step n={3} text={<>Write the <strong>Base prompt</strong> — supports the variables <Code>{"{{.RepoName}}"}</Code> and <Code>{"{{.RepoPath}}"}</Code>.</>} />
+            <Step n={4} text="Click Save." />
           </div>
         </div>
         <p>
-          Si modificaste una especialización por defecto y querés volver a la
-          versión original, click en <strong>Restore</strong> en el detalle de
-          la especialización.
+          If you modified a default specialization and want to revert it, click{" "}
+          <strong>Restore</strong> in the specialization detail view.
         </p>
       </div>
     ),
@@ -320,30 +314,30 @@ const sections: Section[] = [
     content: (
       <div className="space-y-4">
         <p>
-          Los skills son paquetes de habilidades reutilizables que se instalan
-          en los runners para extender sus capacidades con conocimiento
-          especializado o flujos de trabajo predefinidos.
+          Skills are reusable capability packages installed into AI runners to
+          extend them with specialized knowledge or predefined workflows.
         </p>
         <div className="space-y-3">
-          <p className="font-semibold text-gray-800">Crear un skill</p>
+          <p className="font-semibold text-gray-800">Create a skill</p>
           <div className="space-y-2">
-            <Step n={1} text="Click en New Skill." />
-            <Step n={2} text="Completá nombre, slug, descripción y runner type." />
-            <Step n={3} text="Escribí el contenido del skill (en Markdown)." />
-            <Step n={4} text="Click en Save." />
+            <Step n={1} text="Click New Skill." />
+            <Step n={2} text="Fill in name, slug, description, and runner type." />
+            <Step n={3} text="Write the skill content in Markdown." />
+            <Step n={4} text="Click Save." />
           </div>
         </div>
         <Table
-          headers={["Método de importación", "Cómo"]}
+          headers={["Import method", "How"]}
           rows={[
-            ["ZIP file", "Subís un archivo .zip con el contenido del skill"],
-            ["Carpeta local", "Ingresás la ruta de una carpeta en tu máquina"],
-            ["Path directo", "Importás desde una ruta de archivo específica"],
+            ["ZIP file", "Upload a .zip file containing the skill content"],
+            ["Local folder", "Enter a folder path on your machine"],
+            ["Direct path", "Import from a specific file path"],
           ]}
         />
         <p>
-          Usá <strong>Install</strong> para instalar el skill en el CLI del
-          runner correspondiente, y <strong>Uninstall</strong> para quitarlo.
+          Use <strong>Install</strong> to install the skill into the
+          corresponding runner's CLI, and <strong>Uninstall</strong> to remove
+          it.
         </p>
       </div>
     ),
@@ -351,30 +345,30 @@ const sections: Section[] = [
   {
     id: "reports",
     icon: BarChart2,
-    title: "Reportes de uso",
+    title: "Usage Reports",
     color: "bg-green-50 text-green-600",
     content: (
       <div className="space-y-4">
         <p>
-          La sección <strong>Reports</strong> muestra el consumo de tokens y
-          costos estimados, desglosados por runner y período.
+          The <strong>Reports</strong> section shows token consumption and
+          estimated costs, broken down by runner and time period.
         </p>
         <Table
-          headers={["Período", "Descripción"]}
+          headers={["Period", "Description"]}
           rows={[
-            ["Today", "Solo el día de hoy"],
-            ["This Week", "Semana actual"],
-            ["This Month", "Mes actual"],
-            ["All Time", "Todo el historial"],
+            ["Today", "Current day only"],
+            ["This Week", "Current week"],
+            ["This Month", "Current month"],
+            ["All Time", "Full history"],
           ]}
         />
-        <p>Cada reporte incluye:</p>
+        <p>Each report includes:</p>
         <ul className="list-disc list-inside space-y-1 text-gray-600">
-          <li>Total de tokens consumidos (input + output + cache)</li>
-          <li>Costo estimado en USD</li>
-          <li>Desglose por runner (Claude, Gemini, Codex)</li>
-          <li>Comparación con período anterior — badge con delta porcentual</li>
-          <li>Gráfico diario del consumo en el período seleccionado</li>
+          <li>Total tokens consumed (input + output + cache)</li>
+          <li>Estimated cost in USD</li>
+          <li>Breakdown by runner (Claude, Gemini, Codex)</li>
+          <li>Comparison with the previous period — badge with percentage delta</li>
+          <li>Daily usage chart for the selected period</li>
         </ul>
       </div>
     ),
@@ -382,20 +376,20 @@ const sections: Section[] = [
   {
     id: "notifications",
     icon: Bell,
-    title: "Notificaciones",
+    title: "Notifications",
     color: "bg-orange-50 text-orange-600",
     content: (
       <div className="space-y-4">
         <p>
-          Pheron tiene un centro de notificaciones integrado que te avisa cuando
-          un agente completa o falla una tarea. Accedé desde el ícono 🔔 en la
-          barra superior derecha.
+          Pheron has a built-in notification center that alerts you when an agent
+          completes or fails a task. Access it from the 🔔 icon in the top-right
+          bar.
         </p>
         <Table
-          headers={["Tipo", "Cuándo aparece"]}
+          headers={["Type", "When it appears"]}
           rows={[
-            ["Agent completed", "El agente terminó su tarea con éxito"],
-            ["Agent failed", "El agente encontró un error"],
+            ["Agent completed", "The agent finished its task successfully"],
+            ["Agent failed", "The agent encountered an error"],
           ]}
         />
       </div>
@@ -404,41 +398,41 @@ const sections: Section[] = [
   {
     id: "telegram",
     icon: MessageCircle,
-    title: "Bot de Telegram",
+    title: "Telegram Bot",
     color: "bg-sky-50 text-sky-600",
     content: (
       <div className="space-y-4">
         <p>
-          Controlá tus agentes y recibí notificaciones directamente desde
-          Telegram, sin abrir la app.
+          Control your agents and receive notifications directly from Telegram,
+          without opening the app.
         </p>
         <div className="space-y-3">
-          <p className="font-semibold text-gray-800">Configuración</p>
+          <p className="font-semibold text-gray-800">Setup</p>
           <div className="space-y-2">
-            <Step n={1} text={<>Abrí <strong>Settings → Telegram</strong>.</>} />
-            <Step n={2} text={<>Abrí <strong>@BotFather</strong> en Telegram, enviá <Code>/newbot</Code> y copiá el token.</>} />
-            <Step n={3} text="Pegá el token en el campo Bot Token y guardá." />
-            <Step n={4} text="Enviá cualquier mensaje a tu bot — la app detecta el Chat ID automáticamente." />
-            <Step n={5} text="Activá el toggle Enable Telegram." />
+            <Step n={1} text={<>Open <strong>Settings → Telegram</strong>.</>} />
+            <Step n={2} text={<>Open <strong>@BotFather</strong> on Telegram, send <Code>/newbot</Code>, and copy the token.</>} />
+            <Step n={3} text="Paste the token into the Bot Token field and save." />
+            <Step n={4} text="Send any message to your bot — the app detects your Chat ID automatically." />
+            <Step n={5} text="Toggle Enable Telegram on." />
           </div>
         </div>
         <Table
-          headers={["Comando", "Descripción"]}
+          headers={["Command", "Description"]}
           rows={[
-            ["/help", "Lista todos los comandos disponibles"],
-            ["/status", "Muestra el estado de configuración del bot"],
-            ["/repos", "Lista los repositorios con sus tareas pendientes"],
-            ["/agents", "Muestra hasta 5 agentes (los corriendo primero)"],
-            ["/running", "Muestra solo los agentes actualmente corriendo"],
-            ["/tasks [repo]", "Muestra tareas pendientes filtradas por repo"],
-            ["/newtask", "Flujo interactivo para crear y asignar una nueva tarea"],
-            ["/continue", "Reanuda un agente pausado o idle"],
-            ["/lastchat", "Muestra el último Session ID de Claude para un agente"],
+            ["/help", "Lists all available commands"],
+            ["/status", "Shows the bot configuration status"],
+            ["/repos", "Lists repositories with their pending task count"],
+            ["/agents", "Shows up to 5 agents (running ones first)"],
+            ["/running", "Shows only currently running agents"],
+            ["/tasks [repo]", "Shows pending tasks filtered by repo"],
+            ["/newtask", "Interactive flow to create and assign a new task"],
+            ["/continue", "Resumes a paused or idle agent"],
+            ["/lastchat", "Shows the last Claude Session ID for an agent"],
           ]}
         />
         <p className="text-xs text-gray-400 bg-gray-100 rounded-lg px-3 py-2">
-          🔒 Seguridad: el bot solo responde al <Code>chat_id</Code> configurado.
-          Cualquier otro usuario que le escriba es ignorado.
+          🔒 Security: the bot only responds to the configured <Code>chat_id</Code>.
+          Any other user who messages it is ignored.
         </p>
       </div>
     ),
@@ -446,33 +440,33 @@ const sections: Section[] = [
   {
     id: "settings",
     icon: Settings,
-    title: "Configuración",
+    title: "Settings",
     color: "bg-gray-100 text-gray-600",
     content: (
       <div className="space-y-4">
         <p>
-          Abrí <strong>Settings</strong> desde el sidebar para configurar las
-          integraciones.
+          Open <strong>Settings</strong> from the sidebar to configure
+          integrations.
         </p>
         <div className="space-y-3">
           <p className="font-semibold text-gray-800">GitHub Token</p>
           <p>
-            Necesario para clonar repos privados, listar, crear y cerrar
-            issues. Requiere scope <Code>repo</Code>.
+            Required to clone private repos, list, create, and close issues.
+            Needs the <Code>repo</Code> scope.
           </p>
           <div className="space-y-2">
-            <Step n={1} text="Ir a GitHub Settings → Developer settings → Personal access tokens." />
-            <Step n={2} text="Click en Generate new token (classic)." />
-            <Step n={3} text={<>Activar scope <Code>repo</Code> y copiar el token.</>} />
-            <Step n={4} text="Pegar en Pheron → Settings → GitHub Token." />
+            <Step n={1} text="Go to GitHub Settings → Developer settings → Personal access tokens." />
+            <Step n={2} text="Click Generate new token (classic)." />
+            <Step n={3} text={<>Enable the <Code>repo</Code> scope and copy the token.</>} />
+            <Step n={4} text="Paste it into Pheron → Settings → GitHub Token." />
           </div>
         </div>
         <Table
-          headers={["Badge", "Significado"]}
+          headers={["Badge", "Meaning"]}
           rows={[
-            ["✓ Connected", "Integración activa y funcionando"],
-            ["⚠ Incomplete", "Falta configuración"],
-            ["✗ Disabled", "Integración desactivada manualmente"],
+            ["✓ Connected", "Integration active and working"],
+            ["⚠ Incomplete", "Missing configuration"],
+            ["✗ Disabled", "Integration manually disabled"],
           ]}
         />
       </div>
@@ -491,14 +485,14 @@ export default function Documentation() {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-[#6d28d9] font-semibold text-sm uppercase tracking-wide mb-3">
-            Documentación
+            Documentation
           </p>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Cómo usar Pheron
+            How to use Pheron
           </h2>
           <p className="text-lg text-gray-500">
-            Todo lo que necesitás saber para gestionar tus agentes, repositorios
-            y runners de IA desde un solo lugar.
+            Everything you need to know to manage your agents, repositories, and
+            AI runners from one place.
           </p>
         </div>
 
