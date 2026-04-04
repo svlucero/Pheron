@@ -132,6 +132,15 @@ const sections: Section[] = [
           Register the git repositories your agents will work on.
         </p>
         <div className="space-y-3">
+          <p className="font-semibold text-gray-800">Create a new repository</p>
+          <div className="space-y-2">
+            <Step n={1} text="Click Add Repository." />
+            <Step n={2} text={<>Under <strong>Source</strong>, select <strong>Create new</strong>.</>} />
+            <Step n={3} text="Enter the repository name and choose a destination folder." />
+            <Step n={4} text={<>Click <strong>Create</strong> — Pheron creates the repo on GitHub and initializes it locally at the same time.</>} />
+          </div>
+        </div>
+        <div className="space-y-3">
           <p className="font-semibold text-gray-800">Clone from GitHub</p>
           <div className="space-y-2">
             <Step n={1} text="Click Add Repository." />
