@@ -304,12 +304,8 @@ const sections: Section[] = [
         <Table
           headers={["", "Name", "What it does"]}
           rows={[
-            ["🤖", "Assistant", "Persistent assistant for the repository — answers questions, investigates bugs, and reviews code."],
-            ["💬", "Task Chat", "Helps plan and discuss tasks for the repository."],
             ["⚙️", "Developer", "Reads the codebase, implements the requested changes, runs tests, and commits the result."],
             ["🌐", "General Purpose", "A versatile agent that handles any task — coding, research, writing, analysis, or general problem-solving."],
-            ["🛠️", "Skill Creator", "Interactive assistant that guides you through creating a new skill using the /skill-creator workflow."],
-            ["🎯", "Specialization Editor", "Interactive editor that helps you define, refine, and configure agent specializations and their associated skills."],
           ]}
         />
 
